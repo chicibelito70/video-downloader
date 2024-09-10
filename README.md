@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Video Downloader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un proyecto de descarga de videos desde plataformas como YouTube, Facebook, e Instagram. Permite que los usuarios ingresen un enlace de video, seleccionen un formato de descarga (MP4, AVI, MOV, WMV) y obtengan el video convertido. El frontend está desarrollado en **React** y el backend en **Node.js** usando **yt-dlp** y **ffmpeg** para manejar las descargas y conversiones.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Permite pegar el enlace de un video de plataformas populares.
+- Los usuarios pueden seleccionar el formato en el que desean descargar el video.
+- Notificaciones animadas que indican el estado de la descarga.
+- Conversión de videos usando `yt-dlp` y `ffmpeg`.
 
-### `npm start`
+## Requisitos previos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Node.js** y **npm**
+- **yt-dlp** instalado en el sistema.
+- **ffmpeg** instalado en el sistema.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Instalación de yt-dlp:
 
-### `npm test`
+Para instalar **yt-dlp** en tu sistema:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+pip install yt-dlp
+```
 
-### `npm run build`
+### Instalación de ffmpeg:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Descarga ffmpeg desde [aquí](https://ffmpeg.org/download.html).
+- Sigue las instrucciones para agregarlo a tu variable de entorno del sistema.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalación y configuración del proyecto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend (Node.js)
 
-### `npm run eject`
+1. Clona este repositorio.
+   
+2. Navega al directorio del backend:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   cd video-downloader-backend
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Instala las dependencias:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Ejecuta el servidor:
 
-## Learn More
+   ```bash
+   node server.js
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. El servidor backend estará ejecutándose en `http://localhost:5000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend (React)
 
-### Code Splitting
+1. Navega al directorio del frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   cd video-downloader
+   ```
 
-### Analyzing the Bundle Size
+2. Instala las dependencias del proyecto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm install
+   ```
 
-### Making a Progressive Web App
+3. Inicia el servidor de desarrollo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npm start
+   ```
 
-### Advanced Configuration
+4. El frontend estará disponible en `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Conectar el Frontend con el Backend
 
-### Deployment
+El frontend ya está configurado para enviar las solicitudes al backend en `http://localhost:5000`. Asegúrate de que ambos servidores (frontend y backend) estén ejecutándose.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Uso del proyecto
 
-### `npm run build` fails to minify
+1. Pega un enlace de video (de plataformas como YouTube, Facebook, Instagram).
+2. Selecciona el formato de descarga (MP4, AVI, MOV, WMV).
+3. Haz clic en "Descargar Video" para iniciar la descarga.
+4. Recibirás notificaciones animadas sobre el estado de la descarga (inicio, éxito o error).
+5. Al finalizar la descarga, se mostrará un enlace para descargar el video.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Dependencias principales
+
+### Backend
+- **Express**: Framework web para Node.js.
+- **yt-dlp**: Herramienta de descarga de videos.
+- **ffmpeg**: Conversión de videos a diferentes formatos.
+
+### Frontend
+- **React**: Librería de JavaScript para construir interfaces de usuario.
+- **react-toastify**: Para mostrar notificaciones animadas.
+
+## Personalización
+
+Puedes personalizar este proyecto agregando más formatos de video, mejorando la interfaz de usuario o implementando nuevas funcionalidades como la descarga de solo audio. Si deseas cambiar la apariencia de las notificaciones o añadir más detalles a las mismas, puedes modificar las opciones de **react-toastify** en el archivo `App.js`.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Puedes usar, modificar y distribuir el código según los términos de esta licencia.
